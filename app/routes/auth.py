@@ -25,11 +25,11 @@ from app.schema import isValidEmail
 
 bp = Blueprint('auth', __name__)
 
-@bp.route('/register', methods=['GET'])
+@bp.route('/auth/register', methods=['GET'])
 def get_register():
     return render_template('register.html')
 
-@bp.route('/register', methods=['POST'])
+@bp.route('/auth/register', methods=['POST'])
 def register():
     data = request.form.to_dict()
     isValidEmail(data['email'])
@@ -50,13 +50,13 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    return redirect("/login", 201)
+    return redirect(url_for("get_login"), 201)
 
-@bp.route('/login', methods=["GET"])
+@bp.route('/auth/login', methods=["GET"])
 def get_login():
     return render_template("login.html")
 
-@bp.route('/login', methods=['POST'])
+@bp.route('/auth/login', methods=['POST'])
 def login():
     data = request.form.to_dict()
     user = User.query.filter_by(email=data['email']).first()
@@ -68,6 +68,6 @@ def login():
         return jsonify({"message": "Login successful", "role": user.role}), 200
     return jsonify({"error": "Invalid email or password"}), 401
 
-@bp.route('/logout', methods=['POST'])
+@bp.route('/auth/logout', methods=['POST'])
 def logout():
     return
