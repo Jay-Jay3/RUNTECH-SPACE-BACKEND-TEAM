@@ -27,9 +27,9 @@ def view_all_complaints():
         for c in complaints
     ]
     return jsonify(results), 200
+
 @complaints_bp.route('/complaints/update/<int:complaint_id>', methods=['PUT'])
 @admin_required
-
 def update_complaint(complaint_id):
     data = request.get_json()
     complaint = Complaint.query.get_or_404(complaint_id)

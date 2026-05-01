@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/complaint.css') }}"/>
+</head>
+<body>
+    <div class="body">
+        <img src="../static/images/Screenshot 2026-02-20 155334.png"/>
+        <h2>Welcomes The Official Complaints Site</h2>
+        <form action="/complaints" method="post">
+            <div class="box">
+                <h4>Email : </h4>
+                <input type="email" placeholder="JohnDoe@gmail.com" required name="email"/>
+            </div>
+            <div class="box">
+                <h4>Name : </h4>
+                <input placeholder="John Doe" required name="name"/>
+            </div>
+            <div class="box">
+                <h4>Department : </h4>
+                <select type="" required name="department">
+                    <option value="1">ICT</option>
+                    <option value="2">Cafeteria</option>
+                    <option value="3">Academics</option>
+                    <option value="4">Hostel</option>
+                </select>
+            </div>
+            <div class="box">
+                <h4>Title : </h4>
+                <input required name="title">
+            </div>
+            <div class="box">
+                <h4>Complaints : </h4>
+                <input rows="4" max required name="description"/ >
+            </div>
+            <div class="box sub">
+                <input type="submit"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

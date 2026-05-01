@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styles/login.css">
+
+</head>
+<body>
+    <div class="body" style="background-color: antiquewhite; width: 60%; padding: 20px;">
+        <img src="../static/images/Screenshot 2026-02-20 155334.png"/>
+        <h2>Welcomes The Official Complaints Site</h2>
+        <form action="/register" method="post">
+            <div class="box">
+                <h4>Email : </h4>
+                <input placeholder="JohnDoe@gmail.com" type="email" required name="email"/>
+            </div>
+            <div class="box">
+                <h4>Name : </h4>
+                <input placeholder="John Doe" type="name" required name="name"/>
+            </div>
+            <div class="box">
+                <h4>password : </h4>
+                <input type="password" required name="password"/>
+            </div>
+            <div class="box">
+                <h4>Role : </h4>
+                <select type="" required name="role">
+                    <option value="student">student</option>
+                    <option value="admin">admin</option>
+                </select>
+            </div>
+            <div class="box sub">
+                <input type="submit" type="button"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

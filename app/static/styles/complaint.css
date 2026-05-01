@@ -1,0 +1,64 @@
+body {
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.body {
+    width: 90%;
+    justify-self: center;
+    align-self: auto;
+}
+
+.box {
+    border: 1px solid black/50;
+    width: 80%;
+    justify-self: auto;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+input {
+    border : none;
+    outline : none;
+    resize : none;
+    padding : 10px;
+    border : 1px black solid;
+    width: 100%;
+    height: fit-content;  
+    font-size: small;  
+    font-weight: 50;
+    border-radius: 10px;
+}
+
+select {
+    border : none;
+    outline : none;
+    resize : none;
+    padding : 10px;
+    border : 1px black solid;
+    width: 100%;
+    height: fit-content;  
+    font-size: small;  
+    font-weight: 50;
+    border-radius: 10px;
+}
+
+textarea {
+    border : none;
+    outline : none;
+    resize : none;
+    padding : 10px;
+    border : 1px black solid;
+    width: 100%;
+    height: fit-content;  
+    font-size: large;  
+    font-weight: 50;
+    border-radius: 10px;
+}
+
+.sub input {
+    width: 20%;
+}

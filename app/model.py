@@ -7,6 +7,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 # db = SQLAlchemy()
 
@@ -18,7 +20,13 @@ class User(db.Model):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(255), nullable=False)
-    department_id = db.Column(db.Integer, db.ForeignKey('departent.id'), nullable=False)
+    department_id = db.Column(db.Integer, db.ForeignKey('department.id'))
+    
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
 class Compliant(db.Model):
     __tablename__ = "complaint"
@@ -27,8 +35,8 @@ class Compliant(db.Model):
     title = db.Column(db.String(200), nullable = False)
     description = db.Column(db.Text, nullable = False)
     status = db.Column(db.String(20), default ="Pending")
-    created_at = db.Column(db.DateTime,default=datetime.now())
-    admin_response = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime,default=datetime.now(), onupdate=datetime.now())
+    admin_response = db.Column(db.Text, default="Not Responded Yet")
     student_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'), nullable=False)
 
