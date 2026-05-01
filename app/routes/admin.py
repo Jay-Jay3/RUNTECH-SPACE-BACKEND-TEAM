@@ -10,7 +10,10 @@ bp = Blueprint('admin', __name__)
 @bp.route('/admin/complaints', methods=['GET'])
 @admin_required
 def admin_get_complaint():
-    complaints = Compliant.query.all()
+    userID = session.get("user_id")
+    user = User.query.filter(id = userID).first()
+    departmentId = {'user_dep': user.department_id}
+    complaints = Compliant.query.filter(department_id = departmentId)
     results = [
         {"id": c.id, "title": c.title, "description": c.description, "user_id": c.user_id}
         for c in complaints
